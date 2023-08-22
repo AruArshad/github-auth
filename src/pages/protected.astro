@@ -1,0 +1,23 @@
+---
+import { getSession } from "auth-astro/server";
+
+let session = await getSession(Astro.request);
+if (!session) return Astro.redirect("/");
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+
+  <body>
+    <center>
+      <h1>Protected Page</h1>
+      <h2>Only signed in users can see this page.</h2>
+    </center>
+  </body>
+</html>
